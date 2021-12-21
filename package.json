@@ -1,0 +1,16 @@
+{
+  "name": "guitar-chord-tool",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "description": "GuitarChordTool",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "svguitar": "1.13.3"
+  }
+}
