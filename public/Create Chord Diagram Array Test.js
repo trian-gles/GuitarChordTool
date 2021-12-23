@@ -1,8 +1,8 @@
 
-
+//Need to make easy way to input intervals by name and convert them to selected intervals array
 //let intervalsList = [root,m2,M2,m3,M3,P4,tt,P5,m6,M6,m7,M7,P8,m9,M9];
 let selectedIntervals = [0,7,11,14];
-
+//test interval array of maj9 chord
 
 console.log(selectedIntervals);
 
@@ -43,6 +43,7 @@ console.log("All frets must be subtracted by " + subtract)
 fretboardLength = highestFret - lowestFret;
 console.log("Fretboard length must be " + fretboardLength + " frets long.");
 
+//chord diagram array
 let chordDiagram = [
     [1,firstFret - subtract],
     [2,secondFret - subtract],
@@ -50,7 +51,8 @@ let chordDiagram = [
     [4,fourthFret - subtract]
 ];
 
-console.log(chordDiagram)
+//need to create multiple string sets
 
+//why doesn't the text print?
+console.log(chordDiagram);
 
-//let totalFrets = 
