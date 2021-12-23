@@ -1,10 +1,28 @@
 (function () {
+    let intervalsList = [root,m2,M2,m3,M3,P4,tt,P5,m6,M6,m7,M7,P8,m9,M9];
+    let selectedIntervals = [0,7,11,14];
+
+    let firstNote = selectedIntervals[0] + 12;
+    let secondNote = selectedIntervals[1] + 12;
+    let thirdNote = selectedIntervals[2] + 12;
+    let fourthNote = selectedIntervals[3] + 12;
+
+    let firstFret = firstNote;
+    let secondFret = secondNote - firstNote - 5;
+    let thirdFret = thirdNote - secondNote - 5;
+    let fourthFret = fourthNote - thirdNote - 5;
+    let fifthFret = fifthNote - fourthNote - 5;
+
+    let allFrets = [firstFret,secondFret,thirdFret,fourthFret,fifthFret];
+
+    console.log(allFrets)
+    
     var initialSettings = {
         title: 'F# minor',
         color: '#000000',
         strings: 6,
         frets: 4,
-        position: 9,
+        position: 1,
         nutSize: 0.65,
         strokeWidth: 2,
         style: 'normal',
@@ -12,15 +30,16 @@
     var initialChord = {
         // array of [string, fret | 'x' | 0]
         fingers: [
-            [1, 2],
-            [2, 3],
-            [3, 3],
-            [6, 'x']
+            [1, ],
+            [2, ],
+            [3, ],
+            [4, ],
+            [5, ]
         ],
 
         // optional: barres for barre chords
         barres: [
-            { fromString: 5, toString: 1, fret: 1 },
+            //{ fromString: 5, toString: 1, fret: 1 },
         ],
     }
 
