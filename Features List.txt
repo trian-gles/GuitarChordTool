@@ -1,0 +1,21 @@
+
+ Searchable by Chord-Scale
+E.g. > “I want to find chord voicings that work as a I chord”
+> Notes of voicing must fit Ionian Scale degrees: 1, 2, 3, 4, 5, 6, 7 (Exclude voicings with other notes)
+
+“I want to find chord voicings that work as a I or IV chord”
+>Notes of voicing must fit 1, 2, 3, No 4th, 5th, 6th, 7th
+ Searchable by Intervals
+E.g. “I want to find chord voicings that have #11’s”
+
+Searchable by Top Note
+E.g. “I want to find chord voicings with the Major 3rd as a Melody Note”
+
+Calculate Feasible Inversions of any given chord
+
+Convert Voicings to fit any other chord scale
+
+Calculate Voicings over Bass (?)
+
+Create Chord Diagrams
+
