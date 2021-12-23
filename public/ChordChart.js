@@ -1,21 +1,4 @@
 (function () {
-    let intervalsList = [root,m2,M2,m3,M3,P4,tt,P5,m6,M6,m7,M7,P8,m9,M9];
-    let selectedIntervals = [0,7,11,14];
-
-    let firstNote = selectedIntervals[0] + 12;
-    let secondNote = selectedIntervals[1] + 12;
-    let thirdNote = selectedIntervals[2] + 12;
-    let fourthNote = selectedIntervals[3] + 12;
-
-    let firstFret = firstNote;
-    let secondFret = secondNote - firstNote - 5;
-    let thirdFret = thirdNote - secondNote - 5;
-    let fourthFret = fourthNote - thirdNote - 5;
-    let fifthFret = fifthNote - fourthNote - 5;
-
-    let allFrets = [firstFret,secondFret,thirdFret,fourthFret,fifthFret];
-
-    console.log(allFrets)
     
     var initialSettings = {
         title: 'F# minor',
