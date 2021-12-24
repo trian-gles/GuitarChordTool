@@ -1,3 +1,26 @@
+var list
+var list = document.getElementById('valueList');
+var text ='<span> your selected intervals : </span>';
+
+var listArray = [];
+
+var checkboxes = document.querySelectorAll('.checkbox');
+console.log(checkboxes);
+
+for(var checkbox of checkboxes) {
+    checkbox.addEventListener('click',function(){
+        if(this.checked == true) {
+                listArray.push(this.value);
+                valueList.innerHTML = text + listArray.join(' / ');
+            console.log(this.value);
+        }   else {
+            console.log('you unchecked the check box')
+            //removing value from array if unchecked
+            listArray = listArray.filter(e => e !== this.value);
+            valueList.innerHTML = text + listArray.join(' / ');
+        }
+    })
+}
 
 //Need to make easy way to input intervals by name and convert them to selected intervals array
 //let intervalsList = [root,m2,M2,m3,M3,P4,tt,P5,m6,M6,m7,M7,P8,m9,M9];
@@ -20,13 +43,22 @@ var M9 = 14;
 const intervalArray = [
     ['root'],
     ['b2'],
-    ['2','b3','3','4','b5','5','b6','6','b7','7']
-    
+    ['2'],
+    ['b3'],
+    ['3'],
+    ['4'],
+    ['b5'],
+    ['5'],
+    ['b6'],
+    ['6'],
+    ['b7'],
+    ['7']
+
 ];
 // Note: intervalArray[0], Interval name: intervalArray[0,1]
 // selectedIntervals = [intervalArray[0],intervalarray[2],]
 
-const selectedIntervals = [root,P5,M7,M9];
+const selectedIntervals = [listArray[0],listArray[1],listArray[2],listArray[2]];
 //test interval array of maj9 chord
 
 console.log(selectedIntervals);
@@ -35,14 +67,12 @@ let voices = selectedIntervals.length;
 console.log(voices);
 
 
-
-
 let firstNote = selectedIntervals[0] + 12;
 let secondNote = selectedIntervals[1] + 12;
 let thirdNote = selectedIntervals[2] + 12;
 let fourthNote = selectedIntervals[3] + 12;
 
-let allNotes = [firstNote,secondNote,thirdNote,fourthNote];
+let allNotes = [firstNote, secondNote, thirdNote, fourthNote];
 console.log(allNotes)
 
 let firstFret = firstNote;
@@ -51,15 +81,15 @@ let thirdFret = (secondFret + (thirdNote - secondNote - 5));
 let fourthFret = (thirdFret + (fourthNote - thirdNote - 5));
 //let fifthFret = fifthNote - fourthNote + 7;
 
-let allFrets = [firstFret,secondFret,thirdFret,fourthFret];
+let allFrets = [firstFret, secondFret, thirdFret, fourthFret];
 
-    lowestFret = allFrets[0];
-    highestFret = allFrets[0];
+lowestFret = allFrets[0];
+highestFret = allFrets[0];
 
-    for(i = 0; i<=3; i++){
-        if (allFrets[i] < lowestFret) lowestFret = allFrets[i];
-        if (allFrets[i] > highestFret) highestFret = allFrets[i];
-    }
+for (i = 0; i <= 3; i++) {
+    if (allFrets[i] < lowestFret) lowestFret = allFrets[i];
+    if (allFrets[i] > highestFret) highestFret = allFrets[i];
+}
 
 console.log(allFrets);
 console.log("The lowest fret is: " + lowestFret)
@@ -75,38 +105,30 @@ console.log("Fretboard length must be " + fretboardLength + " frets long.");
 
 //chord diagram array
 let chordDiagram = [
-    [1,firstFret - subtract],
-    [2,secondFret - subtract],
-    [3,thirdFret - subtract],
-    [4,fourthFret - subtract]
+    [1, firstFret - subtract],
+    [2, secondFret - subtract],
+    [3, thirdFret - subtract],
+    [4, fourthFret - subtract]
 ];
 
 let chordDiagram2 = [
-    [2,firstFret - subtract],
-    [3,secondFret - subtract],
-    [4,thirdFret - subtract],
-    [5,++fourthFret - subtract]
+    [2, firstFret - subtract],
+    [3, secondFret - subtract],
+    [4, thirdFret - subtract],
+    [5, ++fourthFret - subtract]
 ];
 
 let chordDiagram3 = [
-    [3,firstFret - subtract],
-    [4,secondFret - subtract],
-    [5,++thirdFret - subtract],
-    [6,++fourthFret - subtract]
+    [3, firstFret - subtract],
+    [4, secondFret - subtract],
+    [5, ++thirdFret - subtract],
+    [6, ++fourthFret - subtract]
 ];
 
-
 //need to make automated way of creating string sets, i++? on string number?
-
 
 //why doesn't the text print?
 console.log(chordDiagram);
 console.log(chordDiagram2);
 console.log(chordDiagram3);
-
-
-/* var list = document.getElementById('valueList');
-var listArray = [];
-
-var checkboxes = document.getElementById */
 
