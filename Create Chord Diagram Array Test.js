@@ -1,3 +1,4 @@
+//Retrieves checkbox inputs and adds them to 'listArray'
 var list
 var list = document.getElementById('valueList');
 var text ='<span> your selected intervals : </span>';
@@ -21,6 +22,8 @@ for(var checkbox of checkboxes) {
         }
     })
 }
+//TODO: need to order intervals in ascending order, regardless of order checked
+
 
 //Need to make easy way to input intervals by name and convert them to selected intervals array
 //let intervalsList = [root,m2,M2,m3,M3,P4,tt,P5,m6,M6,m7,M7,P8,m9,M9];
@@ -58,15 +61,15 @@ const intervalArray = [
 // Note: intervalArray[0], Interval name: intervalArray[0,1]
 // selectedIntervals = [intervalArray[0],intervalarray[2],]
 
-const selectedIntervals = [listArray[0],listArray[1],listArray[2],listArray[2]];
 //test interval array of maj9 chord
-
+const selectedIntervals = [listArray[0],listArray[1],listArray[2],listArray[2]];
 console.log(selectedIntervals);
 
+//Array for number of voices 
 let voices = selectedIntervals.length;
 console.log(voices);
 
-
+//Moving Notes up 12 frets to avoid working with negative numbers
 let firstNote = selectedIntervals[0] + 12;
 let secondNote = selectedIntervals[1] + 12;
 let thirdNote = selectedIntervals[2] + 12;
@@ -75,6 +78,7 @@ let fourthNote = selectedIntervals[3] + 12;
 let allNotes = [firstNote, secondNote, thirdNote, fourthNote];
 console.log(allNotes)
 
+//Final fret numbers with string change subtractions.
 let firstFret = firstNote;
 let secondFret = (firstFret + (secondNote - firstNote - 5));
 let thirdFret = (secondFret + (thirdNote - secondNote - 5));
@@ -83,6 +87,7 @@ let fourthFret = (thirdFret + (fourthNote - thirdNote - 5));
 
 let allFrets = [firstFret, secondFret, thirdFret, fourthFret];
 
+//Looping to find lowest and highest fret, used to move voicing to nut of the fretboard + decide total fretboard length on diagram.
 lowestFret = allFrets[0];
 highestFret = allFrets[0];
 
@@ -96,28 +101,29 @@ console.log("The lowest fret is: " + lowestFret)
 console.log("The highest fret is: " + highestFret)
 
 
-//In order to make the chord voicing start at the lowest possible fret.
+//Subtract variable used to make the chord voicing start at the lowest possible fret.
 let subtract = --lowestFret;
 console.log("All frets must be subtracted by " + subtract)
-
+//Fretboard length 
 fretboardLength = highestFret - lowestFret;
 console.log("Fretboard length must be " + fretboardLength + " frets long.");
 
-//chord diagram array
+//Final Chord diagram array
+//set 1
 let chordDiagram = [
     [1, firstFret - subtract],
     [2, secondFret - subtract],
     [3, thirdFret - subtract],
     [4, fourthFret - subtract]
 ];
-
+//set 2
 let chordDiagram2 = [
     [2, firstFret - subtract],
     [3, secondFret - subtract],
     [4, thirdFret - subtract],
     [5, ++fourthFret - subtract]
 ];
-
+//set 3
 let chordDiagram3 = [
     [3, firstFret - subtract],
     [4, secondFret - subtract],
@@ -127,7 +133,7 @@ let chordDiagram3 = [
 
 //need to make automated way of creating string sets, i++? on string number?
 
-//why doesn't the text print?
+//print Chord Diagrams
 console.log(chordDiagram);
 console.log(chordDiagram2);
 console.log(chordDiagram3);
