@@ -1,62 +1,117 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <title>Interval Selector Checklist</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <h1>HELLO THAR</h1>
 
     <div class="container">
-        <p class="title">
-            Choose Intervals
-        </p>
-        <div class="input-box-wrapper">
-            <div class="box">
-                <input type="checkbox" value="root" class="checkbox" id="root">
-                <label for="root">Root</label>
+      <p class="title">Choose Intervals</p>
 
-                <input type="checkbox" value="m2" class="checkbox" id="m2">
-                <label for="m2">b2</label>
+      <div class="box">
+        <form>
+          <input type="checkbox" value="0" class="checkbox" id="root" />
+          Root&nbsp;&nbsp;
 
-                <input type="checkbox" value="M2" class="checkbox" id="M2">
-                <label for="M2">2</label>
+          <input type="checkbox" value="1" class="checkbox" id="m2" />
+          b2&nbsp;&nbsp;
 
-                <input type="checkbox" value="m3" class="checkbox" id="m3">
-                <label for="m3">b3</label>
+          <input type="checkbox" value="2" class="checkbox" id="M2" />
+          2&nbsp;&nbsp;
 
-                <input type="checkbox" value="m3" class="checkbox" id="m3">
-                <label for="m3">#9</label>
+          <input type="checkbox" value="3" class="checkbox" id="m3" />
+          b3&nbsp;&nbsp;
 
-                <input type="checkbox" value="M3" class="checkbox" id="M3">
-                <label for="M3">3</label>
+          <input type="checkbox" value="3" class="checkbox" id="m3" />
+          #9&nbsp;&nbsp;
 
-                <input type="checkbox" value="P4" class="checkbox" id="P4">
-                <label for="P4">4</label>
+          <input type="checkbox" value="4" class="checkbox" id="M3" />
+          3&nbsp;&nbsp;
 
-                <input type="checkbox" value="tt" class="checkbox" id="tt">
-                <label for="tt">b5</label>
+          <input type="checkbox" value="5" class="checkbox" id="P4" />
+          4&nbsp;&nbsp;
 
-                <input type="checkbox" value="tt" class="checkbox" id="tt">
-                <label for="tt">#11</label>
+          <input type="checkbox" value="6" class="checkbox" id="tt" />
+          b5&nbsp;&nbsp;
 
-                <input type="checkbox" value="m6" class="checkbox" id="m6">
-                <label for="m6">b6</label>
-            </div>
-        </div>
+          <input type="checkbox" value="6" class="checkbox" id="tt" />
+          #11&nbsp;&nbsp;
 
+          <input type="checkbox" value="7" class="checkbox" id="P5" />
+          5&nbsp;&nbsp;
 
+          <input type="checkbox" value="8" class="checkbox" id="m6" />
+          b6&nbsp;&nbsp;
+
+          <input type="checkbox" value="9" class="checkbox" id="M6" />
+          6&nbsp;&nbsp;
+
+          <input type="checkbox" value="10" class="checkbox" id="m7" />
+          b7&nbsp;&nbsp;
+
+          <input type="checkbox" value="11" class="checkbox" id="M7" />
+          7&nbsp;&nbsp;
+          <br />
+          <input type="checkbox" value="12" class="checkbox" id="P8" />
+          Octave&nbsp;&nbsp;
+
+          <input type="checkbox" value="13" class="checkbox" id="m9" />
+          b9&nbsp;&nbsp;
+
+          <input type="checkbox" value="14" class="checkbox" id="M9" />
+          9&nbsp;&nbsp;
+
+          <input type="checkbox" value="15" class="checkbox" id="m10" />
+          b3(8va)&nbsp;&nbsp;
+
+          <input type="checkbox" value="16" class="checkbox" id="M10" />
+          3(8va)&nbsp;&nbsp;
+
+          <input type="checkbox" value="17" class="checkbox" id="P11" />
+          11&nbsp;&nbsp;
+
+          <input type="checkbox" value="18" class="checkbox" id="A11" />
+          #11&nbsp;&nbsp;
+
+          <input type="checkbox" value="19" class="checkbox" id="P12" />
+          5(8va)&nbsp;&nbsp;
+
+          <input type="checkbox" value="20" class="checkbox" id="m13" />
+          b13&nbsp;&nbsp;
+
+          <input type="checkbox" value="21" class="checkbox" id="M13" />
+          13&nbsp;&nbsp;
+
+          <input type="checkbox" value="22" class="checkbox" id="m14" />
+          b7(8va)&nbsp;&nbsp;
+
+          <input type="checkbox" value="23" class="checkbox" id="M14" />
+          7(8va)&nbsp;&nbsp;
+
+          <br />
+
+          <input type="reset" />
+          <hr />
+
+          <input
+            type="button"
+            id="runCode"
+            value="Calculate Frets!"
+            onclick="calculateFrets();"
+          />
+        </form>
+      </div>
     </div>
+
     <div class="print-values">
-        <p id="valueList"></p>
+      <p id="valueList"></p>
     </div>
 
     <script src="Create Chord Diagram Array Test.js"></script>
-</body>
-
+  </body>
 </html>
