@@ -20,6 +20,7 @@ for (var checkbox of checkboxes) {
     }
   });
 }
+
 //TODO: need to order intervals in ascending order, regardless of order checked
 //Order them by number so it is easy to put in ascending order, numbers point to nested arrays
 
@@ -133,4 +134,19 @@ function calculateFrets() {
   console.log(chordDiagram);
   console.log(chordDiagram2);
   console.log(chordDiagram3);
+
+  var chordArrayText = "<span> Your chord array results : </span>";
+  var firstDiagram = "<br /> First String Set: ";
+  var secondDiagram = "<br /> Second String Set: ";
+  var thirdDiagram = "<br /> Third String Set: ";
+  var chordArrayEmbed = document.getElementById("chordArrayPrint");
+
+  printChordArrays.innerHTML =
+    chordArrayText +
+    firstDiagram +
+    chordDiagram.join(" / ") +
+    secondDiagram +
+    chordDiagram2.join(" / ") +
+    thirdDiagram +
+    chordDiagram3.join(" / ");
 }
