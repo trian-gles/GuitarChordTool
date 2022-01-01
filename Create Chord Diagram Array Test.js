@@ -1,18 +1,4 @@
 //import { SVGuitarChord } from "svguitar";
-/* 
-const chart = new SVGuitarChord("#chart");
-
-chart
-  .configure({
-    
-  })
-  .chord({
-     
-  })
-  .draw();
-*/
-
-//Retrieves checkbox inputs and adds them to 'listArray'
 
 const intervalArray = [
   ["root"],
@@ -41,68 +27,50 @@ for (var checkbox of checkboxes) {
   checkbox.addEventListener("click", function () {
     if (this.checked == true) {
       listArray.push(this.value);
-      valueList.innerHTML = text + listArray.join(" / ");
+      //valueList.innerHTML = text + listArray.join(" / ");
       console.log(this.value);
     } else {
       console.log("you unchecked the check box");
       //removing value from array if unchecked
       listArray = listArray.filter((e) => e !== this.value);
-      valueList.innerHTML = text + listArray.join(" / ");
+      //valueList.innerHTML = text + listArray.join(" / ");
     }
   });
 }
 
-
-
-//TODO: need to order intervals in ascending order, regardless of order checked
-//Order them by number so it is easy to put in ascending order, numbers point to nested arrays
-
-//Need to make easy way to input intervals by name and convert them to selected intervals array
-
-
-// Note: intervalArray[0], Interval name: intervalArray[0,1]
-// selectedIntervals = [intervalArray[0],intervalarray[2],]
-// checkBoxStates = [[], [], []]
-// listArray = [[string, fret], [string, fret], [string, fret]]
 function calculateFrets() {
-
-  console.log(listArray);
-  listArray = listArray.map(function(item){
+  listArray = listArray.map(function (item) {
     return parseInt(item, 10);
   });
-  console.log(listArray);
-  listArray.sort(function(a, b){return a-b});
-  console.log(listArray);
 
-  listArray = listArray.map(function(interval) {
+  listArray.sort(function (a, b) {
+    return a - b;
+  });
+
+  listArray = listArray.map(function (interval) {
     return interval + 12;
   });
-  console.log(listArray);
-  //Final fret numbers with string change subtractions.
 
-  //for (let i=0; i<listArray.length; i++){
-  //  listArray[i] -= i * 5
-  //}
+  for (let i = 0; i < listArray.length; i++) {
+    listArray[i] -= i * 5;
+  }
 
-  let firstFret = listArray[0] - 0; // 0 7 9 12
-  let secondFret = listArray[1] - 5;
-  let thirdFret = listArray[2] - 10;
-  let fourthFret = listArray[3] - 15;
-  
-  let allFrets = [firstFret, secondFret, thirdFret, fourthFret];
-  console.log(allFrets);
+  //let firstFret = listArray[0] - 0; // 0 7 9 12
+  //let secondFret = listArray[1] - 5;
+  //let thirdFret = listArray[2] - 10;
+  //let fourthFret = listArray[3] - 15;
+
   //Looping to find lowest and highest fret, used to move voicing to nut of the fretboard + decide total fretboard length on diagram.
-  lowestFret = allFrets[0];
-  highestFret = allFrets[0];
+  lowestFret = listArray[0];
+  highestFret = listArray[0];
 
+  //Calculate highest and lowest frets
   for (i = 0; i <= 3; i++) {
-    lowestFret = Math.min(lowestFret, allFrets[i]);
-    highestFret = Math.max(highestFret, allFrets[i]);
+    lowestFret = Math.min(lowestFret, listArray[i]);
+    highestFret = Math.max(highestFret, listArray[i]);
     //if (allFrets[i] < lowestFret) lowestFret = allFrets[i];
     //if (allFrets[i] > highestFret) highestFret = allFrets[i];
   }
-
-  console.log(allFrets);
   console.log("The lowest fret is: " + lowestFret);
   console.log("The highest fret is: " + highestFret);
 
@@ -114,13 +82,13 @@ function calculateFrets() {
   console.log("Fretboard length must be " + fretboardLength + " frets long.");
 
   chordDiagram = [
-    [6, firstFret - subtract],
-    [5, secondFret - subtract],
-    [4, thirdFret - subtract],
-    [3, fourthFret - subtract],
+    [6, listArray[0] - subtract],
+    [5, listArray[1] - subtract],
+    [4, listArray[2] - subtract],
+    [3, listArray[3] - subtract],
   ];
 
-  let chordDiagram2 = [
+  /* let chordDiagram2 = [
     [5, firstFret - subtract],
     [4, secondFret - subtract],
     [3, thirdFret - subtract],
@@ -132,13 +100,11 @@ function calculateFrets() {
     [3, secondFret - subtract],
     [2, thirdFret - subtract + 1],
     [1, fourthFret - subtract + 1],
-  ];
-
-  //need to make automated way of creating string sets, i++? on string number?
+  ]; */
 
   console.log(chordDiagram);
-  console.log(chordDiagram2);
-  console.log(chordDiagram3);
+  //console.log(chordDiagram2);
+  //console.log(chordDiagram3);
 
   var chordArrayText = "<span> Your chord array results : </span>";
   var firstDiagram = "<br /> First String Set: ";
@@ -147,16 +113,13 @@ function calculateFrets() {
   var chordArrayEmbed = document.getElementById("chordArrayPrint");
 
   printChordArrays.innerHTML =
-    chordArrayText +
-    firstDiagram +
-    chordDiagram.join(" / ") +
+    chordArrayText + firstDiagram + chordDiagram.join(" / "); /*+
     secondDiagram +
     chordDiagram2.join(" / ") +
     thirdDiagram +
-    chordDiagram3.join(" / ");
+    chordDiagram3.join(" / ");*/
 }
 
-//error firstDiagram not defined, are functions self-contained?
 function generateDiagram() {
   console.log(chordDiagram);
 
@@ -184,10 +147,14 @@ function generateDiagram() {
     ],
   };
 
-
   // initialize chart
   var chart = new svguitar.SVGuitarChord("#result")
     .configure(initialSettings)
     .chord(initialChord)
     .draw();
+}
+
+function reset() {
+  listArray.splice(0, listArray.length);
+  console.log(listArray);
 }
